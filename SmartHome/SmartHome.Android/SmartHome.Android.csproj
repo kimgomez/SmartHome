@@ -84,7 +84,10 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\eye_closed_icon.png" />
+    <AndroidResource Include="Resources\drawable\eye_icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmartHome\SmartHome.csproj">
       <Project>{221424EE-BD62-4D39-A34C-C9CC7207FD87}</Project>

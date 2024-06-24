@@ -12,6 +12,8 @@ namespace SmartHome
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Registro : ContentPage
     {
+        bool isPasswordVisible = false;
+        bool isConfirmPasswordVisible = false;
         public Registro()
         {
             InitializeComponent();
@@ -36,6 +38,20 @@ namespace SmartHome
 
             DisplayAlert("Success", "Account created successfully!", "OK");
             Navigation.PopAsync(); // Regresar a la página anterior después de crear la cuenta
+        }
+
+        private void OnTogglePasswordButtonClicked(object sender, EventArgs e)
+        {
+            isPasswordVisible = !isPasswordVisible;
+            txtCreatePassword.IsPassword = !isPasswordVisible;
+            btnTogglePassword.Source = isPasswordVisible ? "eye_closed_icon.png" : "eye_icon.png";
+        }
+
+        private void OnToggleConfirmPasswordButtonClicked(object sender, EventArgs e)
+        {
+            isConfirmPasswordVisible = !isConfirmPasswordVisible;
+            txtConfirmPassword.IsPassword = !isConfirmPasswordVisible;
+            btnToggleConfirmPassword.Source = isConfirmPasswordVisible ? "eye_closed_icon.png" : "eye_icon.png";
         }
     }
 }
