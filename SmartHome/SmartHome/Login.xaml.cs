@@ -45,8 +45,10 @@ namespace SmartHome
 
         private void ForgotPassword_Tapped(object sender, EventArgs e)
         {
-            // Aquí puedes agregar la lógica para navegar a una página de recuperación de contraseña
-            DisplayAlert("Forgot Password", "Redirigir a la página de recuperación de contraseña.", "OK");
+           
+                Navigation.PushAsync(new ResetPassword());
+           
+           // DisplayAlert("Forgot Password", "Redirigir a la página de recuperación de contraseña.", "OK");
         }
     }
 }

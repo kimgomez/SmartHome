@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHome.MainTabbedPage">
+
+    <!-- Página Home -->
+    <ContentPage Title="Home" IconImageSource="home_icon.png">
+        <Grid>
+            <!-- Ícono de usuario -->
+            <ImageButton Source="user_icon.png" WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" VerticalOptions="Start" Margin="10" Clicked="OnUserIconClicked"/>
+
+            <!-- Ícono de agregar dispositivo -->
+            <ImageButton Source="add_icon.png" WidthRequest="30" HeightRequest="30" HorizontalOptions="End" VerticalOptions="Start" Margin="10" Clicked="OnAddDeviceClicked"/>
+
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image Source="empty_box.png" WidthRequest="100" HeightRequest="100" />
+                <Label Text="No devices" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="Gray" />
+                <Button Text="Add Device" BackgroundColor="Blue" TextColor="White" Clicked="OnAddDeviceClicked" />
+            </StackLayout>
+        </Grid>
+    </ContentPage>
+
+    <!-- Página Scene -->
+    <ContentPage Title="Scene" IconImageSource="scene_icon.png">
+        <ContentPage.Content>
+            <!-- Tu contenido para la página de escena -->
+        </ContentPage.Content>
+    </ContentPage>
+
+    <!-- Página SmartTutor -->
+    <ContentPage Title="SmartTutor" IconImageSource="tutor_icon.png">
+        <ContentPage.Content>
+            <!-- Tu contenido para la página de SmartTutor -->
+        </ContentPage.Content>
+    </ContentPage>
+
+    <!-- Página Me -->
+    <ContentPage Title="Me" IconImageSource="me_icon.png">
+        <ContentPage.Content>
+            <!-- Tu contenido para la página de perfil -->
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>
