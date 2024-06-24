@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using SmartHome.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,41 +8,43 @@ namespace SmartHome
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        bool isPasswordVisible = false;
+        private BiometricAuthenticationService _biometricService;
+
         public Login()
         {
             InitializeComponent();
+            _biometricService = new BiometricAuthenticationService();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            if(txtUsername.Text=="admin" && txtPassword.Text == "123")
+            var isAuthenticated = await _biometricService.AuthenticateAsync();
+
+            if (isAuthenticated)
             {
-                Navigation.PushAsync(new HomePage());
-            } else
+                // Usuario autenticado mediante biometría
+                await DisplayAlert("Éxito", "Autenticación biométrica exitosa", "OK");
+                await Navigation.PushAsync(new HomePage());
+            }
+            else
             {
-                DisplayAlert("Ops..", "Usuario o Clave incorrecta", "Ok");
-                txtUsername.BackgroundColor = Color.Red;
-                txtPassword.BackgroundColor = Color.Red;
+                // Intentar autenticación con usuario y contraseña
+                if (txtUsername.Text == "admin" && txtPassword.Text == "123")
+                {
+                    await Navigation.PushAsync(new HomePage());
+                }
+                else
+                {
+                    await DisplayAlert("Ops..", "Usuario o Clave incorrecta", "Ok");
+                    txtUsername.BackgroundColor = Color.Red;
+                    txtPassword.BackgroundColor = Color.Red;
+                }
             }
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Registro());
-        }
-
-        private void OnTogglePasswordButtonClicked(object sender, EventArgs e)
-        {
-            isPasswordVisible = !isPasswordVisible;
-            txtPassword.IsPassword = !isPasswordVisible;
-            btnTogglePassword.Source = isPasswordVisible ? "eye_closed_icon.png" : "eye_icon.png";
-        }
-
-        private void ForgotPassword_Tapped(object sender, EventArgs e)
-        {
-            // Aquí puedes agregar la lógica para navegar a una página de recuperación de contraseña
-            DisplayAlert("Forgot Password", "Redirigir a la página de recuperación de contraseña.", "OK");
         }
     }
 }
