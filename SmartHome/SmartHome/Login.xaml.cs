@@ -25,6 +25,8 @@ namespace SmartHome
             } else
             {
                 DisplayAlert("Ops..", "Usuario o Clave incorrecta", "Ok");
+                txtUsername.BackgroundColor = Color.Red;
+                txtPassword.BackgroundColor = Color.Red;
             }
         }
 
