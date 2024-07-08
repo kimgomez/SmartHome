@@ -55,6 +55,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Plugin.Fingerprint">
+      <Version>2.1.5</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Auth">
       <Version>1.7.0</Version>
     </PackageReference>

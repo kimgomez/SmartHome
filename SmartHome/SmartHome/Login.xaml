@@ -12,7 +12,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Entry x:Name="txtPassword" Grid.Column="0" Placeholder="Password" IsPassword="True" TextColor="Black" PlaceholderColor="Gray" />
+                <Entry x:Name="txtPassword" Grid.Column="0" Placeholder="Password" IsPassword="True" TextColor="Black" PlaceholderColor="blue" />
                 <ImageButton x:Name="btnTogglePassword" Grid.Column="1" Source="eye_icon.png" WidthRequest="30" HeightRequest="30" BackgroundColor="Transparent" Clicked="OnTogglePasswordButtonClicked" />
             </Grid>
 
@@ -45,6 +45,11 @@
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                 </Label.GestureRecognizers>
             </Label>
+
+            <Button ImageSource="fingerprint.png"
+                Text="Iniciar sesión con huella dactilar"
+                 ContentLayout="Top,0"
+                Clicked="OnFingerprintLoginClicked" />
 
         </StackLayout>
     </ContentPage.Content>
