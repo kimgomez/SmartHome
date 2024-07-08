@@ -1,100 +1,116 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartHome.Registro">
+             x:Class="SmartHome.Registro"
+             BackgroundColor="White">
     <ContentPage.Content>
         <ScrollView>
-
-            <!-- <StackLayout> -->
-            <!-- <Label Text="Bienvenido a Registro"-->
-            <!--  VerticalOptions="CenterAndExpand" -->
-            <!--      HorizontalOptions="CenterAndExpand" />-->
-            <!--  </StackLayout> -->
-
             <StackLayout Padding="20" VerticalOptions="CenterAndExpand" Spacing="15">
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="20" HasShadow="True" BorderColor="LightGray">
+                    <StackLayout Spacing="15">
+                        <Label Text="Sign Up"
+                               FontSize="28"
+                               TextColor="OrangeRed"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               Margin="0,0,0,20" />
+                        <Entry x:Name="txtFirstName"
+                               Placeholder="First Name"
+                               PlaceholderColor="Gray"
+                               TextColor="Black"
+                               BackgroundColor="White"
+                               Margin="0,10,0,0"
+                               HorizontalOptions="FillAndExpand" />
+                        <Entry x:Name="txtLastName"
+                               Placeholder="Last Name"
+                               PlaceholderColor="Gray"
+                               TextColor="Black"
+                               BackgroundColor="White"
+                               Margin="0,10,0,0"
+                               HorizontalOptions="FillAndExpand" />
+                        <Entry x:Name="txtEmail"
+                               Placeholder="Email"
+                               PlaceholderColor="Gray"
+                               TextColor="Black"
+                               BackgroundColor="White"
+                               Margin="0,10,0,0"
+                               Keyboard="Email"
+                               HorizontalOptions="FillAndExpand" />
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" BackgroundColor="White" Spacing="5">
+                            <Entry x:Name="txtCreatePassword"
+                                   Placeholder="Create Password"
+                                   PlaceholderColor="Gray"
+                                   IsPassword="True"
+                                   TextColor="Black"
+                                   BackgroundColor="White"
+                                   HorizontalOptions="FillAndExpand"
+                                   Margin="0,10,0,0" />
+                            <ImageButton x:Name="btnTogglePassword"
+                                         Source="eye_icon.png"
+                                         WidthRequest="30"
+                                         HeightRequest="30"
+                                         BackgroundColor="Transparent"
+                                         Clicked="OnTogglePasswordButtonClicked" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" BackgroundColor="White" Spacing="5">
+                            <Entry x:Name="txtConfirmPassword"
+                                   Placeholder="Confirm Password"
+                                   PlaceholderColor="Gray"
+                                   IsPassword="True"
+                                   TextColor="Black"
+                                   BackgroundColor="White"
+                                   HorizontalOptions="FillAndExpand"
+                                   Margin="0,10,0,0" />
+                            <ImageButton x:Name="btnToggleConfirmPassword"
+                                         Source="eye_icon.png"
+                                         WidthRequest="30"
+                                         HeightRequest="30"
+                                         BackgroundColor="Transparent"
+                                         Clicked="OnToggleConfirmPasswordButtonClicked" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                            <CheckBox x:Name="chkAgree" />
+                            <Label Text="I agree to the privacy policy agreement."
+                                   VerticalOptions="Center"
+                                   TextColor="Gray" />
+                        </StackLayout>
+                        <Button Text="Create Account"
+                                Clicked="CreateAccountButton_Clicked"
+                                BackgroundColor="Blue"
+                                TextColor="White"
+                                Margin="0,20,0,0"
+                                HeightRequest="50"
+                                HorizontalOptions="Center"
+                                WidthRequest="200" />
 
-                <!-- Título -->
-                <Label Text="Sign Up"
-                   FontSize="24"
-                       TextColor="DarkBlue"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   Margin="0,0,0,20" />
+                        <!-- New Frame for social login options -->
+                        <Label Text="or"
+                               FontSize="18"
+                               TextColor="Gray"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               Margin="20,0" />
 
-                <!-- Nombre Entry -->
-                <Entry x:Name="txtFirstName"
-                   Placeholder="First Name"
-                   TextColor="Black"
-                   BackgroundColor="White"
-                   Margin="0,10,0,0" />
-
-                <!-- Apellido Entry -->
-                <Entry x:Name="txtLastName"
-                   Placeholder="Last Name"
-                   TextColor="Black"
-                   BackgroundColor="White"
-                   Margin="0,10,0,0" />
-
-                <!-- Email Entry -->
-                <Entry x:Name="txtEmail"
-                   Placeholder="Email"
-                   TextColor="Black"
-                   BackgroundColor="White"
-                   Margin="0,10,0,0"
-                   Keyboard="Email" />
-
-                <!-- Create Password Entry -->
-                <StackLayout Orientation="Horizontal" VerticalOptions="Center" BackgroundColor="White">
-                    <Entry x:Name="txtCreatePassword"
-                   Placeholder="Create Password"
-                   IsPassword="True"
-                   TextColor="Black"
-                   BackgroundColor="White"
-                   Margin="0,10,0,0" />
-                    <ImageButton x:Name="btnTogglePassword"
-                             Source="eye_icon.png"
-                             WidthRequest="30"
-                             HeightRequest="30"
-                             BackgroundColor="Transparent"
-                             Clicked="OnTogglePasswordButtonClicked" />
-                </StackLayout>
-
-                <!-- Confirm Password Entry -->
-                <StackLayout Orientation="Horizontal" VerticalOptions="Center" BackgroundColor="White">
-                    <Entry x:Name="txtConfirmPassword"
-                           Placeholder="Confirm Password"
-                           IsPassword="True"
-                           TextColor="Black"
-                           BackgroundColor="White"
-                           HorizontalOptions="FillAndExpand"
-                           Margin="0,10,0,0" />
-                    <ImageButton x:Name="btnToggleConfirmPassword"
-                                 Source="eye_icon.png"
-                                 WidthRequest="30"
-                                 HeightRequest="30"
-                                 BackgroundColor="Transparent"
-                                 Clicked="OnToggleConfirmPasswordButtonClicked" />
-                </StackLayout>
-
-                <!-- Checkbox and Privacy Policy -->
-                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                    <CheckBox x:Name="chkAgree" />
-                    <Label Text="I agree to the privacy policy agreement."
-                       VerticalOptions="Center"
-                       TextColor="Gray" />
-                </StackLayout>
-
-                <!-- Create Account Button -->
-                <Button Text="Create Account"
-                    Clicked="CreateAccountButton_Clicked"
-                    BackgroundColor="Blue"
-                    TextColor="White"
-                    Margin="0,20,0,0"
-                    HeightRequest="50"
-                    HorizontalOptions="Center"
-                    WidthRequest="200" />
+                        <Frame BackgroundColor="White" CornerRadius="10" Padding="20" HasShadow="True" BorderColor="LightGray">
+                            <StackLayout Spacing="15">
+                                <Button Text="Login with Google"
+                                        Clicked="OnGoogleLoginClicked"
+                                        BackgroundColor="Red"
+                                        TextColor="White"
+                                        HeightRequest="50"
+                                        HorizontalOptions="Center"
+                                        WidthRequest="200" />
+                                <Button Text="Sign in with Facebook"
+                                        Clicked="OnFacebookLoginClicked"
+                                        BackgroundColor="Blue"
+                                        TextColor="White"
+                                        HeightRequest="50"
+                                        HorizontalOptions="Center"
+                                        WidthRequest="200" />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
-
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
