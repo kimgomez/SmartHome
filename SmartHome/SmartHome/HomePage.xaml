@@ -1,12 +1,85 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartHome.HomePage">
+             x:Class="SmartHome.HomePage"
+             BackgroundColor="#F5F5F5">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Bienvenido a la pagina de inicio!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Top Navigation Bar -->
+            <StackLayout Orientation="Horizontal" 
+                         BackgroundColor="White" 
+                         Padding="10,0" 
+                         Grid.Row="0" 
+                         HorizontalOptions="FillAndExpand">
+                <Image Source="user_icon.png" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Start" />
+                <Label Text="No devices" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand" 
+                       TextColor="Gray" 
+                       FontSize="18" />
+                <StackLayout Orientation="Horizontal" 
+                             HorizontalOptions="End">
+                    <Image Source="voz.png" 
+                           VerticalOptions="Center" 
+                           Margin="0,0,10,0"/>
+                    <Image Source="add_icon.png" 
+                           VerticalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Main Content -->
+            <StackLayout VerticalOptions="CenterAndExpand" 
+                         HorizontalOptions="CenterAndExpand" 
+                         Grid.Row="1"
+                         Padding="20">
+                <Image Source="no_devices_icon.png" 
+                       HorizontalOptions="Center" />
+                <Label Text="No devices" 
+                       TextColor="Gray" 
+                       FontSize="18" 
+                       HorizontalOptions="Center" 
+                       Margin="0,20,0,0" />
+                <Button Text="Add Device"
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        CornerRadius="10"
+                        WidthRequest="200"
+                        HeightRequest="50"
+                        HorizontalOptions="Center"
+                        Margin="0,20,0,0" />
+            </StackLayout>
+
+            <!-- Bottom Navigation Bar -->
+            <StackLayout Orientation="Horizontal"
+                         BackgroundColor="White"
+                         Padding="10,0"
+                         Grid.Row="2"
+                         HorizontalOptions="FillAndExpand">
+                <ImageButton Source="home_icon.png"
+                             HorizontalOptions="StartAndExpand"
+                             Aspect="AspectFit"
+                             WidthRequest="50" />
+                <ImageButton Source="scene_icon.png"
+                             HorizontalOptions="CenterAndExpand"
+                             Aspect="AspectFit"
+                             WidthRequest="50" />
+                <ImageButton Source="smarttutor_icon.png"
+                             HorizontalOptions="CenterAndExpand"
+                             Aspect="AspectFit"
+                             WidthRequest="50" />
+                <ImageButton Source="me_icon.png"
+                             HorizontalOptions="EndAndExpand"
+                             Aspect="AspectFit"
+                             WidthRequest="50" />
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
