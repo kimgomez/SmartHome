@@ -19,14 +19,6 @@ namespace SmartHome
         {
             InitializeComponent();
         }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            //  Foco en el campo User
-            txtUsername.Focus();
-        }
-
 
         //private void Button_Clicked(object sender, EventArgs e)
         //{
