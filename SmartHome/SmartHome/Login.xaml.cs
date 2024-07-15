@@ -62,31 +62,7 @@ namespace SmartHome
                 txtUsername.BackgroundColor = Color.Red;
                 txtPassword.BackgroundColor = Color.Red;
                 return;
-            }
-
-            //// Validación del formato del correo electrónico (si aplica)
-            //if (!IsValidEmail(username))
-            //{
-            //    await DisplayAlert("Error", "Please enter a valid email address.", "OK");
-            //    txtUsername.BackgroundColor = Color.Red;
-            //    return;
-            //}
-
-            //// Validación de longitud mínima de la contraseña
-            //if (password.Length < 8)
-            //{
-            //    await DisplayAlert("Error", "Password must be at least 8 characters long.", "OK");
-            //    txtPassword.BackgroundColor = Color.Red;
-            //    return;
-            //}
-
-            // Validación de caracteres seguros en la contraseña
-            //if (!IsValidPassword(password))
-            //{
-            //    await DisplayAlert("Error", "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.", "OK");
-            //    txtPassword.BackgroundColor = Color.Red;
-            //    return;
-            //}
+            }           
 
             // Si todas las validaciones pasan, procede con el inicio de sesión
             if (username == "admin" && password == "123")
@@ -99,19 +75,7 @@ namespace SmartHome
                 txtUsername.BackgroundColor = Color.Red;
                 txtPassword.BackgroundColor = Color.Red;
             }
-        }
-
-        private bool IsValidEmail(string email)
-        {
-            var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
-            return regex.IsMatch(email);
-        }
-
-        private bool IsValidPassword(string password)
-        {
-            var regex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$");
-            return regex.IsMatch(password);
-        }
+        }     
 
         public async Task<bool> AuthenticateAsync()
         {
