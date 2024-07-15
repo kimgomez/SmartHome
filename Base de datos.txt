@@ -1,0 +1,254 @@
+CREATE TABLE persona (
+    id_persona int NOT NULL,
+    nombre varchar(50) NOT NULL,
+    apellido1 varchar(50) NOT NULL,
+    apellido2 varchar(50) NOT NULL,
+    telefono varchar(12) NOT NULL,
+    id_pais int NOT NULL,
+    estado bit NOT NULL,
+    email varchar(50) NOT NULL
+);
+
+CREATE TABLE pais (
+    id_pais int NOT NULL,
+    nombre varchar(50) NOT NULL,
+    nacionalidad varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_pais)
+);
+
+CREATE TABLE dispositivo (
+    id_dispositivo int NOT NULL,
+    nombre varchar(50) NOT NULL,
+    id_tipo int NOT NULL,
+    id_modelo int NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_dispositivo)
+);
+
+CREATE TABLE tipo_dispositivo (
+    id_tipo int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_tipo)
+);
+
+CREATE TABLE modelo (
+    id_modelo int NOT NULL,
+    id_marca int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_modelo)
+);
+
+CREATE TABLE marca (
+    id_marca int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_marca)
+);
+
+CREATE TABLE protocolo (
+    id_protocolo int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    version varchar(50) NOT NULL,
+    frecuencia varchar(50) NOT NULL,
+    rango varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_protocolo)
+);
+
+CREATE TABLE protocoloVSmodelo (
+    id_protocolo int NOT NULL,
+    id_modelo int NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL
+);
+
+CREATE TABLE usuarioVSdispositivo (
+    id_usuario int NOT NULL,
+    id_dispositivo int NOT NULL,
+    fecha_instalacion date NOT NULL,
+    id_referencia int NOT NULL,
+    estado bit NOT NULL,
+    Column1 INTEGER NOT NULL
+);
+
+CREATE TABLE referencia (
+    id_referencia int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_referencia)
+);
+
+CREATE TABLE log_actividad (
+    id_log int NOT NULL,
+    id_dispositivo int NOT NULL,
+    fecha datetime NOT NULL,
+    id_actividad int NOT NULL,
+    id_estado_anterior int NOT NULL,
+    id_estado_actual int NOT NULL,
+    PRIMARY KEY (id_log)
+);
+
+CREATE TABLE estado (
+    id_estado int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    id_tipo_estado int NOT NULL,
+    PRIMARY KEY (id_estado)
+);
+
+CREATE TABLE actividad (
+    id_actividad int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_actividad)
+);
+
+CREATE TABLE alerta (
+    id_alerta int NOT NULL,
+    id_tipo_alerta int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    id_estado int NOT NULL,
+    PRIMARY KEY (id_alerta)
+);
+
+CREATE TABLE tipo_alerta (
+    id_tipo_alerta int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_tipo_alerta)
+);
+
+CREATE TABLE rol (
+    id_rol int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_rol)
+);
+
+CREATE TABLE permiso (
+    id_permiso int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registo int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_permiso)
+);
+
+CREATE TABLE rolVSpermiso (
+    id_rol int NOT NULL,
+    id_permiso int NOT NULL,
+    estado bit NOT NULL,
+    fecha_registro date NOT NULL
+);
+
+CREATE TABLE usuarioVSrol (
+    id_usuario int NOT NULL,
+    id_rol int NOT NULL,
+    estado bit NOT NULL,
+    fecha_registro date NOT NULL
+);
+
+CREATE TABLE tipo_estado (
+    id_tipo int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_tipo)
+);
+
+CREATE TABLE configuracion_dispositivo (
+    id_configuracion int NOT NULL,
+    id_dispositivo int NOT NULL,
+    id_parametro int NOT NULL,
+    valor varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_configuracion)
+);
+
+CREATE TABLE parametro (
+    id_parametro int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    id_tipo_parametro int NOT NULL,
+    PRIMARY KEY (id_parametro)
+);
+
+CREATE TABLE lugar (
+    id_lugar int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    PRIMARY KEY (id_lugar)
+);
+
+CREATE TABLE accion_lugar (
+    id_accion_lugar int NOT NULL,
+    id_lugar int NOT NULL,
+    id_dispositivo int NOT NULL,
+    id_accion int NOT NULL,
+    id_parametro int NOT NULL,
+    valor varchar(50) NOT NULL,
+    orden int NOT NULL,
+    PRIMARY KEY (id_accion_lugar)
+);
+
+CREATE TABLE tipo_parametro (
+    id_tipo_parametro int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_tipo_parametro)
+);
+
+CREATE TABLE accion (
+    id_accion int NOT NULL,
+    descripcion varchar(50) NOT NULL,
+    estado bit NOT NULL,
+    usuario_registro int NOT NULL,
+    fecha_registro date NOT NULL,
+    PRIMARY KEY (id_accion)
+);
+
+CREATE TABLE usuario (
+    id_usuario int NOT NULL,
+    usuario varchar(50) NOT NULL,
+    pass varchar(12) NOT NULL,
+    estado bit NOT NULL,
+    id_persona int NOT NULL,
+	token varchar(50) NOT NULL,
+    PRIMARY KEY (id_usuario)
+);

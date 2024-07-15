@@ -11,6 +11,7 @@ using Plugin.Fingerprint.Abstractions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace SmartHome
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -18,10 +19,23 @@ namespace SmartHome
     {
         bool isPasswordVisible = false;
         private readonly ClassSmartHome _databaseService;
+
         public Login()
         {
             InitializeComponent();
-            _databaseService = new ClassSmartHome("DESKTOP-JVUM7P0", "SmartHome", "your_user", "your_password");
+            //_databaseService = new ClassSmartHome("L", "SmartHome", "your_user", "your_password");
+            //_databaseService.TestConnectionAsync();
+            conexion();
+
+        }
+
+        private void conexion()
+        {
+            SqlConnection conexion = new SqlConnection("server=DESKTOP-JVUM7P0; database=SmartHome; integrated security = true");
+            conexion.Open();
+          Console.Write("Se abrió la conexión con el servidor SQL Server y se seleccionó la base de datos");
+            conexion.Close();
+            Console.Write("Se cerró la conexión.");
         }
         protected override void OnAppearing()
         {
