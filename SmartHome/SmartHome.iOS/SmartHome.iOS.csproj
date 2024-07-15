@@ -129,8 +129,13 @@
     <PackageReference Include="Plugin.Fingerprint">
       <Version>2.1.5</Version>
     </PackageReference>
+
     <PackageReference Include="System.Data.SqlClient">
       <Version>4.8.6</Version>
+
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.9.172</Version>
+
     </PackageReference>
     <PackageReference Include="Xamarin.Auth">
       <Version>1.7.0</Version>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHome.Views.UserDetailsPage">
+
+    <StackLayout Padding="20">
+        <Label Text="User Details" FontSize="Large" HorizontalOptions="Center" />
+        <Label Text="First Name:" FontSize="Medium" />
+        <Label x:Name="FirstNameLabel" FontSize="Medium" />
+        <Label Text="Last Name:" FontSize="Medium" />
+        <Label x:Name="LastNameLabel" FontSize="Medium" />
+        <Label Text="Email:" FontSize="Medium" />
+        <Label x:Name="EmailLabel" FontSize="Medium" />
+        <Button Text="Close" Clicked="OnCloseButtonClicked" />
+    </StackLayout>
+
+</ContentPage>

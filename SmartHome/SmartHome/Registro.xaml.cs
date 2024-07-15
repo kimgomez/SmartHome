@@ -3,7 +3,10 @@ using Xamarin.Auth;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SmartHome.Models;
+using System.Threading.Tasks;
 using Xamarin.Auth.Presenters;
+using SmartHome.Views;
 
 namespace SmartHome
 {
@@ -16,7 +19,6 @@ namespace SmartHome
         public Registro()
         {
             InitializeComponent();
-           
         }
 
         protected override void OnAppearing()
@@ -74,24 +76,12 @@ namespace SmartHome
                     scope: "email",
                     isUsingNativeUI: true); // Use native UI if available
 
-                if (authenticator == null)
-                {
-                    DisplayAlert("Error", "Authenticator is null", "OK");
-                    return;
-                }
-
                 authenticator.Completed += OnAuthCompleted;
                 authenticator.Error += OnAuthError;
 
                 AuthenticationState.Authenticator = authenticator;
 
                 var presenter = new OAuthLoginPresenter();
-                if (presenter == null)
-                {
-                    DisplayAlert("Error", "Presenter is null", "OK");
-                    return;
-                }
-
                 presenter.Login(authenticator);
             }
             catch (Exception ex)
@@ -114,7 +104,7 @@ namespace SmartHome
 
             AuthenticationState.Authenticator = authenticator;
 
-            var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
+            var presenter = new OAuthLoginPresenter();
             presenter.Login(authenticator);
         }
 
@@ -123,7 +113,30 @@ namespace SmartHome
             if (e.IsAuthenticated)
             {
                 var token = e.Account.Properties["access_token"];
-                await DisplayAlert("Authentication", "Login successful!", "OK");
+                await SecureStorage.SetAsync("access_token", token);
+
+                // Obtener información del usuario
+                var userInfo = await GetUserInfoAsync(token);
+
+                // Llenar los campos del formulario
+                if (userInfo != null)
+                {
+                    var user = new User
+                    {
+                        FirstName = userInfo.FirstName,
+                        LastName = userInfo.LastName,
+                        Email = userInfo.Email,
+                        Token = token
+                    };
+                    await App.Database.SaveUserAsync(user);
+                    await Navigation.PushAsync(new HomePage());
+                    // Mostrar ventana de detalles del usuario
+                    await Navigation.PushModalAsync(new UserDetailsPage(user));
+                }
+                else
+                {
+                    await DisplayAlert("Authentication", "Failed to retrieve user info", "OK");
+                }
             }
             else
             {
@@ -135,6 +148,25 @@ namespace SmartHome
         {
             DisplayAlert("Authentication", "Login error: " + e.Message, "OK");
         }
+
+        private async Task<UserInfo> GetUserInfoAsync(string token)
+        {
+            // Lógica para obtener información del usuario usando el token
+            // Implementa esto según el proveedor de OAuth que estás usando
+            return new UserInfo
+            {
+                FirstName = "John",
+                LastName = "Doe",
+                Email = "john.doe@example.com"
+            };
+        }
+    }
+
+    public class UserInfo
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
     }
 
     public static class AuthenticationState
