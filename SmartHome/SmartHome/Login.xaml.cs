@@ -140,7 +140,7 @@ namespace SmartHome
                 // Autenticación exitosa, proceder con el inicio de sesión
                 await DisplayAlert("Éxito", "Autenticación exitosa", "OK");
                 // Navegar a la página principal de la aplicación o realizar cualquier acción necesaria
-                await Navigation.PushAsync(new MainPage());
+                await Navigation.PushAsync(new HomePage());
             }
             else
             {

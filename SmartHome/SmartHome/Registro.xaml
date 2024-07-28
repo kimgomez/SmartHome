@@ -108,6 +108,9 @@
                                         WidthRequest="200" />
                             </StackLayout>
                         </Frame>
+
+                        <!-- WebView for handling OAuth authentication within the app -->
+                        <WebView x:Name="authWebView" IsVisible="False" HeightRequest="500" WidthRequest="300" />
                     </StackLayout>
                 </Frame>
             </StackLayout>

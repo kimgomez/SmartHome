@@ -78,7 +78,8 @@
                 <ImageButton Source="me_icon.png"
                              HorizontalOptions="EndAndExpand"
                              Aspect="AspectFit"
-                             WidthRequest="50" />
+                             WidthRequest="50" 
+                             Clicked="OnMeButtonClicked" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

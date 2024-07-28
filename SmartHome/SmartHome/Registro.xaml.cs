@@ -114,9 +114,10 @@ namespace SmartHome
             {
                 var token = e.Account.Properties["access_token"];
                 await SecureStorage.SetAsync("access_token", token);
-
+                await Navigation.PushAsync(new HomePage());
                 // Obtener información del usuario
                 var userInfo = await GetUserInfoAsync(token);
+
 
                 // Llenar los campos del formulario
                 if (userInfo != null)
@@ -129,18 +130,31 @@ namespace SmartHome
                         Token = token
                     };
                     await App.Database.SaveUserAsync(user);
-                    await Navigation.PushAsync(new HomePage());
+                    // await Navigation.PushAsync(new HomePage());
                     // Mostrar ventana de detalles del usuario
                     await Navigation.PushModalAsync(new UserDetailsPage(user));
+                    // Retraso antes de la redirección
+                  
+
+                    // Redirigir a la página HomePage
+                    await Navigation.PushAsync(new HomePage());
                 }
                 else
                 {
-                    await DisplayAlert("Authentication", "Failed to retrieve user info", "OK");
+                    
+
+                    // Redirigir a la página HomePage
+                    await Navigation.PushAsync(new HomePage());
+                    //await DisplayAlert("Authentication", "Failed to retrieve user info", "OK");
                 }
             }
             else
             {
-                await DisplayAlert("Authentication", "Login failed!", "OK");
+               
+                // Redirigir a la página HomePage
+                await Navigation.PushAsync(new HomePage());
+                //await DisplayAlert("Authentication", "Failed to retrieve user info", "OK");
+                //await DisplayAlert("Authentication", "Login failed!", "OK");
             }
         }
 

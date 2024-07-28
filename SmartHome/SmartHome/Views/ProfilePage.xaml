@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHome.Views.ProfilePage"
+             Title="Profile"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <!-- Imagen de Perfil -->
+            <Image Source="login.png" 
+                   WidthRequest="100" 
+                   HeightRequest="100"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+
+            <!-- Información del Usuario -->
+            <Label Text="First Name:" FontAttributes="Bold"
+                   TextColor="Blue"/>
+            <Label x:Name="FirstNameLabel"
+                   TextColor="Black"/>
+
+            <Label Text="Last Name:" FontAttributes="Bold"
+                   TextColor="Blue"/>
+            <Label x:Name="LastNameLabel"
+                   TextColor="Black"/>
+
+            <Label Text="Email:" FontAttributes="Bold"
+                   TextColor="Blue"/>
+            <Label x:Name="EmailLabel"
+                   TextColor="Black"/>
+
+            <!-- Botón para Cambiar Contraseña -->
+            <Button Text="Change Password" 
+                    BackgroundColor="DodgerBlue" 
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="OnChangePasswordClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

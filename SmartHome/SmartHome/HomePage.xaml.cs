@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHome.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,12 @@ namespace SmartHome
         public HomePage()
         {
             InitializeComponent();
+        }
+
+        private async void OnMeButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ProfilePage());
+
         }
 
         //private void OnAddDeviceClicked(object sender, EventArgs e)
