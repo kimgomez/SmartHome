@@ -35,6 +35,20 @@
                     TextColor="White"
                     HorizontalOptions="FillAndExpand"
                     Clicked="OnChangePasswordClicked"/>
+
+            <!-- Botón para Regresar a HomePage -->
+            <Button Text="Regresar a HomePage" 
+                    BackgroundColor="Green" 
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="OnBackToHomeClicked"/>
+
+            <!-- Botón para Salir de la App -->
+            <Button Text="Salir de la App" 
+                    BackgroundColor="Red" 
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="OnExitAppClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
