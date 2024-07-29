@@ -35,5 +35,10 @@ namespace SmartHome.Data
         {
             return _database.UpdateAsync(user);
         }
+
+        //public Task<User> GetUserByIdAsync(int id)
+        //{
+        //    return _database.Table<User>().Where(u => u.Id == id).FirstOrDefaultAsync();
+        //}
     }
 }

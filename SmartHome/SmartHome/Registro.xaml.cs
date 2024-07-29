@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using Xamarin.Auth.Presenters;
 using SmartHome.Views;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using SmartHome.Data;
+using System.IO;
 
 namespace SmartHome
 {
@@ -16,10 +19,13 @@ namespace SmartHome
     {
         bool isPasswordVisible = false;
         bool isConfirmPasswordVisible = false;
+        UserDatabase _database;
 
         public Registro()
         {
             InitializeComponent();
+            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "UserSQLite.db3");
+            _database = new UserDatabase(dbPath);
         }
 
         protected override void OnAppearing()
@@ -85,8 +91,23 @@ namespace SmartHome
                 return;
             }
 
+            var user = new User
+            {
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Email = txtEmail.Text,
+                Password = txtCreatePassword.Text,
+                ConfirmPassw = txtConfirmPassword.Text
+            };
+
+             _database.SaveUserAsync(user);
+             DisplayAlert("User Saved", $"User {user.FirstName} {user.LastName} {user.Email} Pass: {user.Password} saved successfully.", "OK");
+
+
             DisplayAlert("Success", "Account created successfully!", "OK");
             Navigation.PopAsync(); // Regresar a la página anterior después de crear la cuenta
+
+           Navigation.PushAsync(new dbViewer());
         }
 
         private bool IsValidEmail(string email)
