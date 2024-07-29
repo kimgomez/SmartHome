@@ -24,16 +24,9 @@ namespace SmartHome
 
         }
 
-        //private void OnAddDeviceClicked(object sender, EventArgs e)
-        //{
-        //    // Aquí puedes agregar la lógica para agregar un nuevo dispositivo
-        //    DisplayAlert("Add Device", "Logic to add device goes here.", "OK");
-        //}
-
-        //private void OnUserIconClicked(object sender, EventArgs e)
-        //{
-        //    // Aquí puedes agregar la lógica para navegar a la página de perfil de usuario
-        //    DisplayAlert("User Profile", "Logic to navigate to user profile goes here.", "OK");
-        //}
+        private async void OnHomeButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DevicesPage());
+        }
     }
 }

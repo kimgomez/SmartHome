@@ -60,18 +60,19 @@
             <!-- Bottom Navigation Bar -->
             <StackLayout Orientation="Horizontal"
                          BackgroundColor="White"
-                         Padding="10,0"
+                         Padding="1,0"
                          Grid.Row="2"
                          HorizontalOptions="FillAndExpand">
-                <ImageButton Source="home_icon.png"
+                <ImageButton Source="home.png"
                              HorizontalOptions="StartAndExpand"
                              Aspect="AspectFit"
-                             WidthRequest="50" />
-                <ImageButton Source="scene_icon.png"
+                             WidthRequest="50"
+                             Clicked="OnHomeButtonClicked"/>
+                <ImageButton Source="scene.png"
                              HorizontalOptions="CenterAndExpand"
                              Aspect="AspectFit"
                              WidthRequest="50" />
-                <ImageButton Source="smarttutor_icon.png"
+                <ImageButton Source="tutor_icon.png"
                              HorizontalOptions="CenterAndExpand"
                              Aspect="AspectFit"
                              WidthRequest="50" />
