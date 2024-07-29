@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Plugin.Fingerprint;
 using Plugin.Fingerprint.Abstractions;
-//using Plugin.biometric;
+using SmartHome.Data;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,11 +18,14 @@ namespace SmartHome
     public partial class Login : ContentPage
     {
         bool isPasswordVisible = false;
+        UserDatabase _database;
         private readonly ClassSmartHome _databaseService;
         public Login()
         {
             InitializeComponent();
-            _databaseService = new ClassSmartHome("DESKTOP-JVUM7P0", "SmartHome", "your_user", "your_password");
+            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "UserSQLite.db3");
+            _database = new UserDatabase(dbPath);
+            //_databaseService = new ClassSmartHome("DESKTOP-JVUM7P0", "SmartHome", "your_user", "your_password");
         }
         protected override void OnAppearing()
         {
@@ -89,16 +93,35 @@ namespace SmartHome
             //}
 
             // Si todas las validaciones pasan, procede con el inicio de sesión
-            if (username == "admin" && password == "123")
+
+            string email = txtUsername.Text;
+            string passw = txtPassword.Text;
+
+            // Verifica las credenciales (suponiendo que has almacenado la contraseña como un hash seguro)
+            var user = (await _database.GetUsersAsync()).FirstOrDefault(u => u.FirstName == username && u.Password == password);
+
+            if (user != null)
             {
+                await DisplayAlert("Success", $"Welcome, {user.FirstName}!", "OK");
+                // Navegar a la página principal de la aplicación
                 await Navigation.PushAsync(new HomePage());
             }
             else
             {
-                await DisplayAlert("Ops..", "Usuario o Clave incorrecta", "Ok");
-                txtUsername.BackgroundColor = Color.Red;
-                txtPassword.BackgroundColor = Color.Red;
+                await DisplayAlert("Error", "Invalid email or password. Please try again.", "OK");
             }
+
+
+            //if (username == "admin" && password == "123")
+            //{
+            //    await Navigation.PushAsync(new HomePage());
+            //}
+            //else
+            //{
+            //    await DisplayAlert("Ops..", "Usuario o Clave incorrecta", "Ok");
+            //    txtUsername.BackgroundColor = Color.Red;
+            //    txtPassword.BackgroundColor = Color.Red;
+            //}
         }
 
         private bool IsValidEmail(string email)
