@@ -119,9 +119,13 @@
     <AndroidResource Include="Resources\drawable\user_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\drawable\fingerprint.png" />
+    <AndroidResource Include="Resources\drawable\fingerprint.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable\habilidades.png" />
-    <Content Include="Resources\drawable\home_button.png" />
+    <AndroidResource Include="Resources\drawable\home_button.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable\OFF.png">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
