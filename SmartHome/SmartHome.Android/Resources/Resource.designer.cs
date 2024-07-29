@@ -16909,28 +16909,34 @@ namespace SmartHome.Droid
 			public const int notify_panel_notification_icon_bg = 2131230870;
 			
 			// aapt resource value: 0x7F080097
-			public const int preference_list_divider_material = 2131230871;
+			public const int OFF = 2131230871;
 			
 			// aapt resource value: 0x7F080098
-			public const int scene = 2131230872;
+			public const int On = 2131230872;
 			
 			// aapt resource value: 0x7F080099
-			public const int test_custom_background = 2131230873;
+			public const int preference_list_divider_material = 2131230873;
 			
 			// aapt resource value: 0x7F08009A
-			public const int test_level_drawable = 2131230874;
+			public const int scene = 2131230874;
 			
 			// aapt resource value: 0x7F08009B
-			public const int tooltip_frame_dark = 2131230875;
+			public const int test_custom_background = 2131230875;
 			
 			// aapt resource value: 0x7F08009C
-			public const int tooltip_frame_light = 2131230876;
+			public const int test_level_drawable = 2131230876;
 			
 			// aapt resource value: 0x7F08009D
-			public const int tutor_icon = 2131230877;
+			public const int tooltip_frame_dark = 2131230877;
 			
 			// aapt resource value: 0x7F08009E
-			public const int user_icon = 2131230878;
+			public const int tooltip_frame_light = 2131230878;
+			
+			// aapt resource value: 0x7F08009F
+			public const int tutor_icon = 2131230879;
+			
+			// aapt resource value: 0x7F0800A0
+			public const int user_icon = 2131230880;
 			
 			static Drawable()
 			{

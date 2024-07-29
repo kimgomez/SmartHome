@@ -122,6 +122,12 @@
     <Content Include="Resources\drawable\fingerprint.png" />
     <AndroidResource Include="Resources\drawable\habilidades.png" />
     <Content Include="Resources\drawable\home_button.png" />
+    <AndroidResource Include="Resources\drawable\OFF.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\On.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
     <Content Include="Resources\drawable\perfil.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
