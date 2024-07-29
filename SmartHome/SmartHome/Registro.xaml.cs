@@ -7,6 +7,7 @@ using SmartHome.Models;
 using System.Threading.Tasks;
 using Xamarin.Auth.Presenters;
 using SmartHome.Views;
+using System.Text.RegularExpressions;
 
 namespace SmartHome
 {
@@ -45,8 +46,59 @@ namespace SmartHome
                 return;
             }
 
+            // Validacion de formato de email
+            if (!IsValidEmail(txtEmail.Text))
+            {
+                DisplayAlert("Error", "Please enter a valid email address.", "OK");
+                txtEmail.BackgroundColor = Color.Red;
+                return;
+            }
+
+            // Validacion de longitud minima de la contraseña
+            if (txtCreatePassword.Text.Length < 8)
+            {
+                DisplayAlert("Error", "Password must be at least 8 characters long.", "OK");
+                txtCreatePassword.BackgroundColor = Color.Red;
+                return;
+            }
+            // Validacion de longitud minima de confirmar contraseña
+            if (txtConfirmPassword.Text.Length < 8)
+            {
+                DisplayAlert("Error", "Password must be at least 8 characters long.", "OK");
+                txtConfirmPassword.BackgroundColor = Color.Red;
+                return;
+            }
+
+            //Validacion de caracteres en la contraseña
+            if (!IsValidPassword(txtCreatePassword.Text))
+            {
+                DisplayAlert("Error", "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.", "OK");
+                txtCreatePassword.BackgroundColor = Color.Red;
+                return;
+            }
+
+            //Validacion de caracteres en confirmar contraseña
+            if (!IsValidPassword(txtConfirmPassword.Text))
+            {
+                DisplayAlert("Error", "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.", "OK");
+                txtConfirmPassword.BackgroundColor = Color.Red;
+                return;
+            }
+
             DisplayAlert("Success", "Account created successfully!", "OK");
             Navigation.PopAsync(); // Regresar a la página anterior después de crear la cuenta
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            return regex.IsMatch(email);
+        }
+
+        private bool IsValidPassword(string password)
+        {
+            var regex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$");
+            return regex.IsMatch(password);
         }
 
         private void OnTogglePasswordButtonClicked(object sender, EventArgs e)
@@ -173,4 +225,6 @@ namespace SmartHome
     {
         public static OAuth2Authenticator Authenticator;
     }
+
+
 }
