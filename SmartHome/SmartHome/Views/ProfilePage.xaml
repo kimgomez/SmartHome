@@ -8,33 +8,43 @@
         <StackLayout Padding="20">
             <!-- Imagen de Perfil -->
             <Image Source="login.png" 
-                   WidthRequest="100" 
-                   HeightRequest="100"
+                   WidthRequest="140" 
+                   HeightRequest="140"
                    HorizontalOptions="Center" 
                    VerticalOptions="Start"/>
 
             <!-- Información del Usuario -->
             <Label Text="First Name:" FontAttributes="Bold"
-                   TextColor="Blue"/>
+                   TextColor="Blue" 
+                   FontSize="16"/>
+            
             <Label x:Name="FirstNameLabel"
-                   TextColor="Black"/>
+                   TextColor="Black" 
+                   FontSize="16"/>
 
             <Label Text="Last Name:" FontAttributes="Bold"
-                   TextColor="Blue"/>
+                   TextColor="Blue"
+                   FontSize="16" />
+
             <Label x:Name="LastNameLabel"
-                   TextColor="Black"/>
+                   TextColor="Black"
+                   FontSize="16"/>
 
             <Label Text="Email:" FontAttributes="Bold"
-                   TextColor="Blue"/>
+                   TextColor="Blue"
+                   FontSize="16"/>
             <Label x:Name="EmailLabel"
-                   TextColor="Black"/>
+                   TextColor="Black"
+                   FontSize="16"
+                    Padding="0,0,10,70"/>
 
             <!-- Botón para Cambiar Contraseña -->
             <Button Text="Change Password" 
                     BackgroundColor="DodgerBlue" 
                     TextColor="White"
                     HorizontalOptions="FillAndExpand"
-                    Clicked="OnChangePasswordClicked"/>
+                    Clicked="OnChangePasswordClicked"                   
+                    />
 
             <!-- Botón para Regresar a HomePage -->
             <Button Text="Regresar a HomePage" 

@@ -4,7 +4,7 @@
              x:Class="SmartHome.Views.dbViewer">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="Usuarios Registrados! "
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
