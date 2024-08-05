@@ -16939,49 +16939,52 @@ namespace SmartHome.Droid
 			public const int scene = 2131230880;
 			
 			// aapt resource value: 0x7F0800A1
-			public const int test_custom_background = 2131230881;
+			public const int sonoff = 2131230881;
 			
 			// aapt resource value: 0x7F0800A2
-			public const int test_level_drawable = 2131230882;
+			public const int test_custom_background = 2131230882;
 			
 			// aapt resource value: 0x7F0800A3
-			public const int tooltip_frame_dark = 2131230883;
+			public const int test_level_drawable = 2131230883;
 			
 			// aapt resource value: 0x7F0800A4
-			public const int tooltip_frame_light = 2131230884;
+			public const int tooltip_frame_dark = 2131230884;
 			
 			// aapt resource value: 0x7F0800A5
-			public const int tutor_icon = 2131230885;
+			public const int tooltip_frame_light = 2131230885;
 			
 			// aapt resource value: 0x7F0800A6
-			public const int user_icon = 2131230886;
+			public const int tutor_icon = 2131230886;
 			
 			// aapt resource value: 0x7F0800A7
-			public const int Vacuum = 2131230887;
+			public const int user_icon = 2131230887;
 			
 			// aapt resource value: 0x7F0800A8
-			public const int VacuumOn = 2131230888;
+			public const int Vacuum = 2131230888;
 			
 			// aapt resource value: 0x7F0800A9
-			public const int Vehicle = 2131230889;
+			public const int VacuumOn = 2131230889;
 			
 			// aapt resource value: 0x7F0800AA
-			public const int VehicleOn = 2131230890;
+			public const int Vehicle = 2131230890;
 			
 			// aapt resource value: 0x7F0800AB
-			public const int WaterPump = 2131230891;
+			public const int VehicleOn = 2131230891;
 			
 			// aapt resource value: 0x7F0800AC
-			public const int WaterPumpOn = 2131230892;
+			public const int WaterPump = 2131230892;
 			
 			// aapt resource value: 0x7F0800AD
-			public const int wifi = 2131230893;
+			public const int WaterPumpOn = 2131230893;
 			
 			// aapt resource value: 0x7F0800AE
-			public const int Zigbee2 = 2131230894;
+			public const int wifi = 2131230894;
 			
 			// aapt resource value: 0x7F0800AF
-			public const int Zwave = 2131230895;
+			public const int Zigbee2 = 2131230895;
+			
+			// aapt resource value: 0x7F0800B0
+			public const int Zwave = 2131230896;
 			
 			static Drawable()
 			{
