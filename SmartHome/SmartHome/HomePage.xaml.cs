@@ -28,5 +28,10 @@ namespace SmartHome
         {
             await Navigation.PushAsync(new DevicesPage());
         }
+
+        private async void OnAddDeviceButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddDevicePage());
+        }
     }
 }

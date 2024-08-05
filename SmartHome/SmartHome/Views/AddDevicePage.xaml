@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHome.Views.AddDevicePage"
+             Title="Add Device"
+             BackgroundColor="#F5F5F5">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Select a protocol" 
+                   FontAttributes="Bold" 
+                   FontSize="24" 
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   Margin="0,20,0,20"/>
+
+            <CollectionView x:Name="ProtocolCollectionView" 
+                            ItemsSource="{Binding Protocols}" 
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical" 
+                                     Margin="10">
+                            <Image Source="{Binding ImageSource}" 
+                                   HeightRequest="100" 
+                                   WidthRequest="100"/>
+                            <Label Text="{Binding Name}" 
+                                   HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

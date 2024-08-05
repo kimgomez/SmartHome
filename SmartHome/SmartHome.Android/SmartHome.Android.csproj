@@ -112,7 +112,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\add_icon.png" />
     <AndroidResource Include="Resources\drawable\empty_box.png" />
-    <AndroidResource Include="Resources\drawable\home.png" />
     <AndroidResource Include="Resources\drawable\me_icon.png" />
     <AndroidResource Include="Resources\drawable\scene.png" />
     <AndroidResource Include="Resources\drawable\tutor_icon.png" />
