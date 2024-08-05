@@ -63,7 +63,7 @@
                          Padding="1,0"
                          Grid.Row="2"
                          HorizontalOptions="FillAndExpand">
-                <ImageButton Source="home.png"
+                <ImageButton Source="home_button.png"
                              HorizontalOptions="StartAndExpand"
                              Aspect="AspectFit"
                              WidthRequest="50"
