@@ -25,7 +25,7 @@ namespace SmartHome.Views
         private async void OnChangePasswordClicked(object sender, EventArgs e)
         {
             // Navegar a la página de cambio de contraseña (a crear más adelante)
-            await Navigation.PushAsync(new ResetPassword());
+            await Navigation.PushAsync(new ResetPassword(App.Database));
         }
 
         private async void OnBackToHomeClicked(object sender, EventArgs e)

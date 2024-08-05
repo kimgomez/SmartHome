@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using SQLite;
 using SmartHome.Models;
+using System;
 
 namespace SmartHome.Data
 {
@@ -35,6 +36,16 @@ namespace SmartHome.Data
         {
             return _database.UpdateAsync(user);
         }
+
+        public Task<User> GetUserByEmailAsync(string email)
+        {
+            User user = new User();
+            //user.Email = email;
+            Console.WriteLine(email+" email sent - "+"email saved --"+ _database.Table<User>().Where(u => u.Email == email).FirstOrDefaultAsync());
+            //return _database.Table<User>().FirstOrDefaultAsync(u => u.Email == email);
+            return _database.Table<User>().Where(u => u.Email == email).FirstOrDefaultAsync();
+        }
+             
 
         //public Task<User> GetUserByIdAsync(int id)
         //{

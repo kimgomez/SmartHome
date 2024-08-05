@@ -30,14 +30,14 @@ namespace SmartHome.Views
                 ToggleSwitch.Text = "On";
                 ToggleSwitch.BackgroundColor = Color.Green;
                 LightbulbImage.Source = "On.png";
-                await SendCommandToDevice("192.168.11.38", "Power%20On");
+                await SendCommandToDevice("192.168.220.71", "Power%20On");
             }
             else
             {
                 ToggleSwitch.Text = "Off";
                 ToggleSwitch.BackgroundColor = Color.Red;
                 LightbulbImage.Source = "OFF.png";
-                await SendCommandToDevice("192.168.11.38", "Power%20Off");
+                await SendCommandToDevice("192.168.220.71", "Power%20Off");
             }
         }
 

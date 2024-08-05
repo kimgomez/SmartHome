@@ -101,7 +101,7 @@ namespace SmartHome
             };
 
              _database.SaveUserAsync(user);
-             DisplayAlert("User Saved", $"User {user.FirstName} {user.LastName} {user.Email} Pass: {user.Password} saved successfully.", "OK");
+            // DisplayAlert("User Saved", $"User {user.FirstName} {user.LastName} {user.Email} Pass: {user.Password} saved successfully.", "OK");
 
 
             DisplayAlert("Success", "Account created successfully!", "OK");

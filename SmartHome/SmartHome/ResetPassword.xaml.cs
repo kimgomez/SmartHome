@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SmartHome.Data;
+using SmartHome.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,15 +17,29 @@ namespace SmartHome
     {
         bool isPasswordVisible = false;
         bool isConfirmPasswordVisible = false;
+        private UserDatabase _database;
         public ResetPassword()
         {
             InitializeComponent();
+
+        }
+        public ResetPassword(UserDatabase database)
+        {
+            InitializeComponent();
+            _database = database;
         }
 
         private async void ResetPasswordButton_Clicked(object sender, EventArgs e)
         {
+            string email = txtEmail.Text;
             string password = txtResetPassword.Text;
             string ConfirmPassword = txtResetPassword.Text;
+
+            if (string.IsNullOrEmpty(email))
+            {
+                await DisplayAlert("Error", "Please enter your email.", "OK");
+                return;
+            }
 
             // Validación de caracteres seguros en la contraseña
             if (!IsValidPassword(password))
@@ -58,22 +74,49 @@ namespace SmartHome
             }
 
             if (string.IsNullOrEmpty(txtResetPassword.Text) || string.IsNullOrEmpty(txtResetPassword.Text) ||
-                string.IsNullOrEmpty(txtConfirmNewPassword.Text) )
+                string.IsNullOrEmpty(txtConfirmNewPassword.Text))
             {
                 await DisplayAlert("Error", "Please fill in all fields.", "OK");
                 return;
             }
 
-            if (txtResetPassword.Text != txtConfirmNewPassword.Text)
+            if (password != ConfirmPassword)
             {
                 await DisplayAlert("Error", "Passwords do not match.", "OK");
                 return;
             }
 
-            // Aquí puedes agregar la lógica para crear la cuenta, como guardar la información en una base de datos o llamar a un servicio web.
+            //try
+            //{
+            //    var user = _database.GetUserByEmailAsync(email);
+            //    if (user == null)
+            //    {
+            //        await DisplayAlert("Error", "User not found.", "OK");
+            //        return;
+            //    }
 
-            await DisplayAlert("Success", "Password Reset successfully!", "OK");
-            await Navigation.PopAsync(); // Regresar a la página anterior después de crear la cuenta
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    await DisplayAlert("Error", ex.Message, "OK");
+            //}
+
+            var user = await _database.GetUserByEmailAsync(email);
+            if (user == null)
+            {
+                await DisplayAlert("Error", "User not found. "+ email+"_ \n"+user ,"OK");
+                return;
+            }
+
+            user.Password = password;
+            await _database.UpdateUserAsync(user);
+
+            await DisplayAlert("Success", "Password updated successfully.", "OK");
+
+            // await DisplayAlert("Success", "Password Reset successfully!", "OK");
+            await Navigation.PushAsync(new dbViewer());
+            // await Navigation.PopAsync(); // Regresar a la página anterior después de crear la cuenta
         }
         private void OnTogglePasswordButtonClicked(object sender, EventArgs e)
         {
