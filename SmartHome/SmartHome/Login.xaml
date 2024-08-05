@@ -20,7 +20,7 @@
             <!-- Forgot Password Label -->
             <Label Text="Forgot Password?" TextColor="Gray" FontAttributes="Bold" HorizontalOptions="End" Margin="0,10,0,0">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="ForgotPassword_Tapped" />
+                    <TapGestureRecognizer Command="Binding ForgotPasswordComman}" />
                 </Label.GestureRecognizers>
             </Label>
             

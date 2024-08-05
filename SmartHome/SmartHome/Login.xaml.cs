@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Microsoft.Data.SqlClient;
 using Plugin.Fingerprint;
 using Plugin.Fingerprint.Abstractions;
@@ -14,6 +15,9 @@ using Xamarin.Forms.Xaml;
 namespace SmartHome
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    
+
+    
     public partial class Login : ContentPage
     {
         bool isPasswordVisible = false;
@@ -22,7 +26,11 @@ namespace SmartHome
         {
             InitializeComponent();
             _databaseService = new ClassSmartHome("DESKTOP-JVUM7P0", "SmartHome", "your_user", "your_password");
+            ForgotPasswordCommand = new Command(async () => await Navigation.PushAsync(new PasswordRecovery()));
+            BindingContext = this;
         }
+
+        public Command ForgotPasswordCommand { get; }
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -75,7 +83,7 @@ namespace SmartHome
                 txtUsername.BackgroundColor = Color.Red;
                 txtPassword.BackgroundColor = Color.Red;
             }
-        }     
+        }
 
         public async Task<bool> AuthenticateAsync()
         {
@@ -123,6 +131,11 @@ namespace SmartHome
 
             int count = await _databaseService.ExecuteScalarAsync(query, parameters);
             return count == 1;
+        }
+
+        private async void OnForgotPasswordTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PasswordRecovery());
         }
 
 
