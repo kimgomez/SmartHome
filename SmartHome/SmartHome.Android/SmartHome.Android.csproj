@@ -143,6 +143,9 @@
     <AndroidResource Include="Resources\drawable\CameraOn.png">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bluetooth.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
     <Content Include="Resources\drawable\perfil.png" />
     <AndroidResource Include="Resources\drawable\Vacuum.png">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
@@ -160,6 +163,16 @@
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\WaterPumpOn.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <Content Include="Resources\drawable\sonoff.png" />
+    <AndroidResource Include="Resources\drawable\wifi.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Zigbee2.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Zwave.png">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
   </ItemGroup>
