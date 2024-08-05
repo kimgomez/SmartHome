@@ -165,7 +165,9 @@
     <AndroidResource Include="Resources\drawable\WaterPumpOn.png">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
-    <Content Include="Resources\drawable\sonoff.png" />
+    <AndroidResource Include="Resources\drawable\sonoff.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable\wifi.png">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
